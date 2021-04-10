@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <h:head>
+        <title>DAB</title>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <h:outputStylesheet name="css/style.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"/>
+    </h:head>
+
+    <h:body>
+        <h:form id="login"> 
+            <div class="header">
+                <h1>Dental Appointments Booking (DAB) Website</h1>
+            </div>
+
+            <div class="topnav">
+                <p:commandLink class="fa fa-user-plus" action="Signup.xhtml" > </p:commandLink>
+
+                <p:commandLink style="float:right"  class="fa fa-sign-in" action="Login.xhtml"> </p:commandLink>
+            </div>
+
+            <div  align="center" class="row" style="height:500px;overflow:auto;">
+
+                <h1 style="text-align: center" ><h:outputText  styleClass="title"  value="Login"/></h1>
+                <table border="0">
+                    <tbody>
+                        <tr>
+                            <td>Username: </td>
+                            <td><h:inputText value="#{login.username}"/></td>
+                        </tr>
+                        <tr>
+                            <td>Password:</td>
+                            <td><h:inputSecret  value="#{login.password}"/></td>
+                        </tr>
+
+                    </tbody>
+                </table>
+                <p:commandButton value="Login" action="#{login.checkLogin()}" update="messages" /> <br/> 
+                <h:commandButton value="Signup" action="Signup.xhtml" />
+                <br/>                 
+                <p:messages id="messages" closable="true" />
+            </div>
+
+            <div class="footer">
+                <p>Advanced Programming {422}, Project 2 [Clinic]</p>
+            </div>
+        </h:form>
+    </h:body>
+</html>

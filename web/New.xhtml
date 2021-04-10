@@ -1,0 +1,95 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core" 
+      xmlns:p="http://primefaces.org/ui">
+
+    <h:head>
+        <title>DAB</title>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <h:outputStylesheet name="css/style.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"/>
+    </h:head>
+    
+    <h:body>
+        <h:form id="insert">
+            <div class="header">
+                <h1>Dental Appointments Booking (DAB) Website</h1>
+            </div>
+
+            <div class="topnav">
+                <p:commandLink action="Home.xhtml" class="fa fa-home"> </p:commandLink>
+                <p:commandLink value="Book a Appotment" action="New.xhtml"> </p:commandLink>
+                <p:commandLink value="View a Appotment" action="Select.xhtml" > </p:commandLink>
+                <p:commandLink value="Update a Appotment" action="Update.xhtml" > </p:commandLink>
+                <p:commandLink value="Delete a Appotment" action="Delete.xhtml" > </p:commandLink>
+                <p:commandLink style="float:right" action="Home.xhtml" class="fa fa-sign-out"> </p:commandLink>
+            </div>
+
+            <div  align="center" class="row" style="height:500px;overflow:auto;">
+
+                <h1 style="text-align: center"><h:outputText  styleClass="title"  value="Book a Appotment"/></h1>
+                <table border="0">
+                    <tbody>
+                        <tr>
+                            <td >ID.: </td>
+                            <td ><h:inputText  value="#{newBean.ID}" /></td>
+                        </tr>
+
+                        <tr>
+                            <td>Name: </td>
+                            <td><h:inputText value="#{newBean.name}"/></td>
+                        </tr>
+
+                        <tr>
+                            <td>Mobile.: </td>
+                            <td><h:inputText value="#{newBean.mobilephone}"/></td>
+                        </tr>
+
+                        <tr>
+                            <td>Date: </td>
+                            <td><h:inputText value="#{newBean.date}" immediate="YYYY-MM-DD"></h:inputText></td>
+                        </tr>
+
+                        <tr>
+                            <td>Time: </td>
+                            <td><h:inputText value="#{newBean.time}" immediate="HH:MM"></h:inputText></td>
+                        </tr>
+                        <tr></tr><tr></tr>                        <tr></tr><tr></tr>                        <tr></tr><tr></tr>
+                        <tr>
+                            <td>Specialization: </td>
+                            <td><h:selectOneRadio value = "#{newBean.specialization}"> 
+                                    <f:selectItem itemValue = "Dental" itemLabel = "Dental" /> 
+                                    <f:selectItem itemValue = "Dental Surgery" itemLabel = "Dental Surgery" /> 
+                                    <f:selectItem itemValue = "Pediatrics" itemLabel = "Pediatrics" /> 
+                                </h:selectOneRadio></td>   
+                        </tr>
+                        <tr></tr><tr></tr>                        <tr></tr><tr></tr>                        <tr></tr><tr></tr>
+                        <tr>
+                            <td>Doctor: </td>
+                            <td><h:selectOneMenu value = "#{newBean.doctor}"> 
+                                    <f:selectItem itemValue = "Ahmed" itemLabel = "Ahmed" /> 
+                                    <f:selectItem itemValue = "Ola" itemLabel = "Ola" /> 
+                                    <f:selectItem itemValue = "Talal" itemLabel = "Talal" /> 
+                                    <f:selectItem itemValue = "Jason" itemLabel = "Jason" />                                    
+                                    <f:selectItem itemValue = "Ibrahim" itemLabel = "Ibrahim" /> 
+                                </h:selectOneMenu></td>   
+                        </tr>
+
+                    </tbody>                
+                </table>
+                <br/>                 
+                <p:commandButton value="Book" action="#{newBean.InsertData}" update="messages" />
+                <br/>                 
+                <p:messages id="messages"  closable="true" />
+            </div>
+            <div class="footer">
+                <p>Advanced Programming {422}, Project 2 [Clinic]</p>
+            </div>
+        </h:form>
+
+    </h:body>
+</html>
+
